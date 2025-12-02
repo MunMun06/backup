@@ -1,0 +1,92 @@
+/* ===== Global Defaults ===== */
+* {
+    font-family: "JetBrainsMono Nerd Font","JetBrainsMono NF", monospace;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    padding: 0px;
+    margin: 0px;
+    color: #ffffff;
+    background: transparent;
+}
+
+/* ===== Waybar Bar ===== */
+window#waybar {
+    background: rgba(30, 30, 46, 0.7);
+    padding: 0px;
+    margin: 0px;
+    border-bottom: 1px solid #44475a;
+}
+
+/* ===== Module Defaults ===== */
+#clock,
+#pulseaudio,
+#network,
+#battery,
+#workspaces {
+    padding: 2px ;
+    margin: 1px ;
+    background: transparent;
+    border-radius: 10px;
+}
+
+/* ===== Workspaces ===== */
+#workspaces button {
+    padding: 2px ;
+    margin: 2px;
+    background-color: transparent;
+    color: red;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+#workspaces button.active {
+    background-color: #89b4fa;
+    color: red;
+}
+
+#workspaces button:hover {
+    background-color: gray;
+}
+
+/* ===== Clock ===== */
+#clock {
+    color: #fab387;
+    margin-left: 16px
+}
+
+/* ===== Pulseaudio (Volume) ===== */
+#pulseaudio {
+    color: #a6e3a1;
+    margin-right: 6px;
+}
+
+/* ===== Network ===== */
+#network {
+    color: #94e2d5;
+}
+
+/* ===== Battery ===== */
+#battery {
+    margin-right: 12px;		
+    color: #f9e2af;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#battery.critical {
+    color: #f38ba8;
+    font-weight: bold;
+}
+
+/* ===== Tooltip (Optional) ===== */
+tooltip {
+    background: #1e1e2e;
+    border: 1px solid #cdd6f4;
+    border-radius: 6px;
+    padding: 6px;
+    color: #cdd6f4;
+}
+
