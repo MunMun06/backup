@@ -1,0 +1,15 @@
+nmcli
+  nmcli device wifi connect "Wifi_name" password "password"
+  nmcli device wifi connect "Wifi_name" password 'password'
+  nmcli device wifi connect "Wifi_name" --ask 
+
+  nmcli device (show available connection)
+  nmcli connection show --active (show connected internet)
+  ip a (ip addr show but shorter)
+
+  nmcli dvice wifi list
+
+connect hotspot
+  nmcli radio wifi on 
+  nmcli device wifi list 
+  then same as wifi

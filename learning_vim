@@ -1,0 +1,78 @@
+Vim introduction
+
+vim grammar      command count motion
+
+  motion is anything that move the cursor
+
+  command 
+  v go to visual mode  
+  u undo 
+
+  operator pending
+  d delete
+  c 
+  y yank
+
+  motion
+  hjkl
+  w
+  b
+
+  insert mode
+    i left side insert mode 
+    a right side insert mode 
+
+  visual mode 
+   p exactly what I y 
+
+  visual line mode (shift + v)
+    get new line after p 
+    
+  ** delete and yank go to the same register ** 
+
+  yy yank a line 
+  dd delete a line 
+
+horizontal 
+
+  motion 
+  _ go to the beginning 
+  $ go to the end 
+  0 go to the first character
+  f go forward to the character you say    ex. f(
+    f forward F backward
+  t go up to but not on the character you say   ex. t(
+    t forward T backward
+  F go back to the character you say
+    F forward f backward
+  T go just before the character you say 
+    T forward t backward
+
+  insert mode 
+  I go to the beginning of the line 
+  A go to the end of the line 
+  o make a new line under your current line 
+  O make a new line above your current line 
+
+  :Ex for netrw
+
+vertical
+
+a paragraph is any contiguous non-white space 
+
+  zz center your view 
+  :x jump to line x 
+
+  motion
+  { go up by a paragraph
+  } go down by a paragraph 
+  ctrl + d  move down half a page 
+  ctrl + u  move up half a page 
+  G to go to the bottom of the file 
+  gg to go to the top of the file 
+
+  searching (n to go forward, N to go backward, esc to leave)
+  / search 
+  ? inverted search (n go backward, N go forward)
+  * to search the word your cursor is on as a / 
+  # to search the word your cursor is on as a ? 

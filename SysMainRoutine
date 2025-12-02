@@ -1,0 +1,79 @@
+step 1  the prep 
+
+	check archlinux.org for news
+
+  sudo reflector --protocol https --age 4 --sort rate --number 5 --save /etc/pacman.d/mirrorlist
+		(took about 3 minute)
+	sudo pacman -Syy (refresh the mirrorlist)
+
+	pacman -Qe > Installed.txt
+
+step 1.5 (do monthly)
+
+	install archiso and iso.sig from archlinux.org
+
+	gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig
+
+  lsblk and ls -l /dev/disk/by-id/ to find the usb drive (it should be sdb)
+
+  sudo dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive oflag=sync status=progress
+
+step 2  install and clean up
+
+	sudo pacman -Syu (update pacman packages) 
+
+	yay -Sua (update only AUR packages)
+
+	yay -Sc (remove unused cache packages)
+
+	yay -Yc (remove unwanted dependencies)
+
+	sudo pacman -Rnscu $(pacman -Qtdq)  (remove orphan/usused packages)
+
+	du -sh .cache/  (check the size of .cache)
+
+	rm -rf .cache/* (delete everything in the dir but not the dir)
+
+	sudo journalctl --vacuum-time=2week
+
+	sudo DIFFPROG=vimdiff pacdiff
+
+step 3 check
+
+	shutdown -r now
+
+	journalctl -b | grep -E 'Error|error|Delay|delay|Timeout|timeout|Fail|fail'
+
+	systemctl --failed (check for failed unit)
+
+	sudo smartctl -t long /dev/sda (check disk health and potential malware)
+		(wait about 3 minutes then run
+	sudo smartctl -a /dev/sda | grep overall-health )
+
+step 4 misc
+
+	df -h / (check the size of root)
+
+	pacman -Qqm (list AUR packages)
+
+step 4.5 snapper (monthly)
+  test restoring with undochange and rollback
+
+
+
+sudo pacman -Rnscu (-check what will be removed and keep dependencies that other packages used)
+
+
+snapper
+	sudo snapper -c root list (list root snapshots)
+	sudo snapper -c var_log list (list var_log snapshots)
+	snapper config are in /etc/snapper/configs
+	sudo snapper -c root status 80..81 (show file change between 80 and 81)
+	sudo snapper -c root diff  80..81 (more details)
+	sudo snapper -c root undochange 80..81 (go back to 80 from 81) 
+		used when something break
+	
+in TTY (used when cant login to hyprland)
+	sudo snapper -c root list
+	sudo snapper -c root rollback --snapshot 10 (full rollback to snapshot 10)
+	reboot

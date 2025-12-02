@@ -1,0 +1,12 @@
+<type>[optional scope]: <description>
+
+type
+  fix
+  feat
+  style
+
+scope 
+  the specific part that is affected
+
+description
+  use imperative (add not added)

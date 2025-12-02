@@ -1,0 +1,32 @@
+tlp
+  sudo tlp-stat -s 
+
+kernel and driver optimizations
+  nmcli radio wifi on 
+  sudo iw dev w1p1s0 set power_save on
+
+  iw dev wlp1s0 get power_save 
+
+  rfkill block bluetooth
+  rfkill block webcam
+
+  rfkill unblock webcam
+
+  sudo pacman -S cpupower
+  sudo systemctl enable cpupower --now 
+  sudo cpupower frequency-set -g powersave 
+
+reduce background processes
+  top 
+  systemctl disable --usr some-service
+
+lightweight web browser
+  ungoogled chromium
+
+
+sudo powertop to check power usage
+
+these things reset with every boot 
+
+sudo powertop --auto-tune // turn on most battery saving measure 
+./battery-save.sh // turn on more battery saving measure, but turn on USB autosuspend
