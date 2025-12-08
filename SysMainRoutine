@@ -2,7 +2,7 @@ step 1  the prep
 
 	check archlinux.org for news
 
-  sudo reflector --protocol https --age 4 --sort rate --number 5 --save /etc/pacman.d/mirrorlist
+  sudo reflector --protocol https --age 3 --sort rate --number 5 --save /etc/pacman.d/mirrorlist
 		(took about 3 minute)
 	sudo pacman -Syy (refresh the mirrorlist)
 
@@ -50,7 +50,8 @@ step 3 check
 		(wait about 3 minutes then run
 	sudo smartctl -a /dev/sda | grep overall-health )
 
-  ~/backup/sync_backup
+  cd backup 
+  ./sync_backup
   git add .
   git commit -m ""
   git push origin main
