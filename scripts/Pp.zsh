@@ -9,7 +9,7 @@ green=$'%{\e[32m%}'
 red=$'%{\e[31m%}'
 reset=$'%{\e[0m%}'
 
-# Check for gpg and vim
+# Check for gpg and nvim
 if ! command -v gpg >/dev/null || ! command -v nvim >/dev/null; then
   echo "${red}Error:${reset} gpg and/or neovim are not installed."
   exit 1
@@ -22,8 +22,8 @@ if ! gpg -d "$encrypted" > "$plaintext" 2>/dev/null; then
   exit 1
 fi
 
-# Open in Vim
-echo "${green}Opening in Vim...${reset}"
+# Open in nvim
+echo "${green}Opening in nvim...${reset}"
 nvim "$plaintext"
 
 # Re-encrypt
