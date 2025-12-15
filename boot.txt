@@ -1,0 +1,4 @@
+reboot then spam 
+
+F12 for boot menu
+F2 for BIOS
