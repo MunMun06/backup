@@ -37,7 +37,8 @@ int main() {
   // Key (string): Full path to the source file.
   // Value (string): The desired new filename in the destination directory.
   std::map<std::string, std::string> files_to_copy = {
-      {"/home/munmun06/Installed.txt", "Installed.txt"},
+      {"/home/munmun06/installed.txt", "installed.txt"},
+      {"/home/munmun06/explicit-installed.txt", "explicit-installed.txt"},
       {"/home/munmun06/SysMainRoutine", "SysMainRoutine"},
       {"/home/munmun06/scripts/", "scripts/"},
       {"/home/munmun06/passwords.txt.gpg", "passwords.txt.gpg"},
