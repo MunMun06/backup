@@ -6,15 +6,17 @@ step 1  the prep
 		(took about 3 minute)
 	sudo pacman -Syy (refresh the mirrorlist)
 
-	pacman -Qe > Installed.txt
+	pacman -Qe > explicit-installed.txt && pacman -Q > installed.txt
 
 step 1.5 (do monthly)
 
 	install archiso and iso.sig from archlinux.org
 
-	gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig
+	gpg --keyserver-options auto-key-retrieve --verify archlinux-version-x86_64.iso.sig  # obsolete 
+  pacman-key -v archlinux-version-x86_64.iso.sig
 
   lsblk and ls -l /dev/disk/by-id/ to find the usb drive (it should be sdb)
+  previous: usb-SanDisk_Ultra_4C531146370827115364-0:0 -> ../../sdb
 
   sudo dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/disk/by-id/usb-My_flash_drive oflag=sync status=progress
 
