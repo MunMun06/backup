@@ -22,6 +22,14 @@ map("n", "<leader>k", function()
   vim.cmd("!zsh ~/scripts/compile_c.sh '" .. dir .. "' '" .. file .. "' '" .. out .. "'")
 end, opts)
 
+map("n", "<leader>h", function()
+  local dir = vim.fn.expand("%:p:h")
+  local file = vim.fn.expand("%:t")
+  -- local out = vim.fn.expand("%:t:r")
+
+  vim.cmd("!zsh ~/scripts/compile_java.sh '" .. dir .. "' '" .. file .. "'")
+end, opts)
+
 -- Remap Ctrl+D (scroll down half page) to also center the cursor (zz)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down and Center" })
 
