@@ -1,7 +1,36 @@
 #include <cstdlib>
+#include <ctime>
+#include <iomanip>
 #include <iostream>
 #include <map>
 #include <string>
+
+// Function to handle the Git synchronization
+void sync_to_git() {
+  // 1. Get current date for the commit message (d/m/y)
+  std::time_t t = std::time(nullptr);
+  std::tm tm = *std::localtime(&t);
+
+  char date_buffer[20];
+  std::strftime(date_buffer, sizeof(date_buffer), "%d/%m/%Y", &tm);
+  std::string commit_msg = "sync " + std::string(date_buffer);
+
+  // 2. Chain the commands: add -> commit -> push
+  // We use '&&' so it only proceeds if the previous command succeeded
+  std::string git_command =
+      "git add . && git commit -m \"" + commit_msg + "\" && git push";
+
+  std::cout << "\n🚀 Starting Git Sync..." << std::endl;
+  std::cout << "Executing: " << git_command << std::endl;
+
+  int result = std::system(git_command.c_str());
+
+  if (result == 0) {
+    std::cout << "✅ Git sync complete!" << std::endl;
+  } else {
+    std::cerr << "❌ Git sync failed." << std::endl;
+  }
+}
 
 // Function to safely execute the rsync command
 int execute_rsync(const std::string &source, const std::string &destination) {
@@ -76,6 +105,7 @@ int main() {
   if (overall_status == 0) {
     std::cout << "🎉 All files copied successfully to: "
               << final_destination_dir << std::endl;
+    sync_to_git();
   } else {
     std::cerr
         << "⚠️ One or more rsync operations failed. Check the errors above."
