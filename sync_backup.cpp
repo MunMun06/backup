@@ -1,6 +1,5 @@
 #include <cstdlib>
 #include <ctime>
-#include <iomanip>
 #include <iostream>
 #include <map>
 #include <string>
@@ -13,7 +12,7 @@ void sync_to_git() {
 
   char date_buffer[20];
   std::strftime(date_buffer, sizeof(date_buffer), "%d/%m/%Y", &tm);
-  std::string commit_msg = "sync " + std::string(date_buffer);
+  std::string commit_msg = "sync " + std::string(date_buffer) + " d/m/y";
 
   // 2. Chain the commands: add -> commit -> push
   // We use '&&' so it only proceeds if the previous command succeeded
