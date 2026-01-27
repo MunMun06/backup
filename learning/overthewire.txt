@@ -1,0 +1,84 @@
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+
+password: bandit0
+
+level 0 
+  ls cd cat file du find 
+  password is in readme 
+ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+
+level 1 
+  dashed filename required a path. full or relative are fine 
+263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+
+level 2
+  's s s s' -> s\ s\ s\ s 
+MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+
+level 3 
+  hidden file in the directory
+2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+
+level 4 
+  use file to find human readable files 
+  file ./* | grep text    // CHEATING
+4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+
+level 5 
+
+find . -type f -size 1033c -exec file {} + | grep "ASCII text" // CHEATING
+find . -type f -size 1033c ! -executable -exec file {} + | grep "ASCII text"
+HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+
+level 6 
+  grep 
+ls -oR 2>/dev/null | grep bandit7    to find things that are owned by bandit7 
+find -name "bandit7*" 2>/dev/null    2>/dev/null to redirect all permission denied to null  
+find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+  c for bytes. k,M,G is obvious
+morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
+
+level 7 
+  man,sort,uniq,strings,base64,tr,tar,gzip,bzip2,xxd
+  cat data.txt | grep millionth
+dfwvzFQi4mU0wfNbFOe9RoWskMLg7eEc
+
+level 8 
+  sort data.txt | uniq -u 
+  sort in alphabetical order
+  uniq only works for adjacent lines. -u print unique line
+4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
+
+level 9 
+  strings data.txt | grep =
+FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+
+level 10
+  base64 -d data.txt 
+dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+
+level 11 
+  tr (translate)
+  cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+  translate ROT13
+7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
+
+level 12
+  mv cp mkdir
+  xxd -r data.txt recovered.txt   // recover original file
+
+  use file to find the metadata on the first line
+    first time use cat, every other time use xxd -d file.txt | head
+
+  .gz
+    1f8b08
+    add .gz to the filename
+    gzip -d recovered.txt.gz
+  .bz2
+    425a68
+    add .bz2 to the filename
+    bzip2 -d recovered.txt.bz2
+  tar
+    filename like data.bin5
+    tar -xf data.bin5.tar
+cbaIiH0h8J2eUks2vdTDwAn

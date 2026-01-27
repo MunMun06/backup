@@ -71,7 +71,7 @@ int main() {
       {"/home/munmun06/scripts/", "scripts/"},
       {"/home/munmun06/passwords.txt.gpg", "passwords.txt.gpg"},
       {"/home/munmun06/git_convention", "git_convention"},
-      {"/home/munmun06/learning_vim", "learning_vim"},
+      {"/home/munmun06/My_programming_stuff/learning/", "learning/"},
       {"/home/munmun06/SaveBattery.txt", "SaveBattery.txt"},
       {"/home/munmun06/Wifi.txt", "Wifi.txt"},
       {"/home/munmun06/.config/hypr/", "hypr/"},

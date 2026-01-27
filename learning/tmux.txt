@@ -1,0 +1,67 @@
+Things to know 
+	session
+		like saves in game
+	window
+		like workspaces
+	pane
+		spliting into multiple pages
+
+notation
+<c-b> (key to press)
+  <c-b> is your prefix key (default is ctrl+b)
+  ex. <c-b> d
+
+general things 
+  <c-b> w   session and window preview (can move around)
+    <c-b> x  kill session or window 
+  <c-b> : enter command mode 
+
+copy mode 
+  <c-b> [ enter copy mode 
+    space  start copy 
+    enter  save to clipboard
+    q  leave copy mode 
+  mostly vi keys 
+
+
+session 
+  <c-b> d  detach from the current session 
+  <c-b> $  rename session
+
+  tmux ls   list tmux session
+  tmux  create a new tmux session (0,1,2,...)
+  tmux new -s name  to create a new tmux session named [name]
+  tmux a  attach the last session
+  tmux a -t name  attach to session [name]
+  tmux kill-ses  kill last session 
+  tmux kill-ses -t name  kill session [name]
+  tmux kill-server  kill all session
+
+window 
+  <c-b> c  create new window
+  <c-b> n  move to next window
+  <c-b> p  move to previous window
+  <c-b> ,  rename current window
+  <c-b> &  kill current window
+  <c-b> w  session and window preview (can move around)
+  <c-b> [0-9]  move to specific window 
+  <c-b>    toggle last active window 
+
+  : swap-window -s 2 -t 1  swap window 1 and 2 
+  : swap-window -t -1  move current window left by one 
+  : movew -s 0:0 -t 1:9  move window from source to target
+  : movew -s 0:9  reposition window 
+  : movew -r  renumber window to remove gaps 
+ 
+pane 
+  pane is a pain in the ass 
+
+  <c-b> %  split vertically
+  <c-b> "  split horizontally
+  <c-b> arrow  move between panes 
+  <c-b> q  show panes index
+  <c-b> q [number]  move between panes with index number 
+  <c-b> ctrl arrow  resize pane by 1 pixel
+  <c-b> alt arrow  resize pane by 5 pixels
+  <c-b> alt [1-5]  use pre-selected layout for panes 
+  <c-b> x   kill current pane 
