@@ -80,7 +80,8 @@ int main() {
       {"/home/munmun06/.config/nvim/", "nvim/"},
       {"/home/munmun06/.config/waybar/", "waybar/"},
       {"/home/munmun06/.config/fastfetch/", "fastfetch/"},
-      {"/etc/nftables.conf", "nftables.conf"}};
+      {"/etc/nftables.conf", "nftables.conf"},
+      {"/home/munmun06/.tmux.conf", "tmux.conf"}};
 
   int overall_status = 0; // Tracks if any copy failed
 
