@@ -54,9 +54,6 @@ step 3 check
 
   cd backup 
   ./sync_backup
-  git add .
-  git commit -m ""
-  git push origin main
 
 step 4 misc
 
