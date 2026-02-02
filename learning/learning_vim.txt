@@ -15,8 +15,14 @@ vim grammar      command count motion
 
   motion
   hjkl
+    J to bring the line below to the current line 
   w
   b
+  e
+
+  normal mode 
+    main mode, default mode, navigation mode 
+    .  to replay your vim action in normal mode 
 
   insert mode
     i left side insert mode 
@@ -32,6 +38,23 @@ vim grammar      command count motion
 
   yy yank a line 
   dd delete a line 
+
+files
+  :w  save 
+  :q  quit 
+  :wq or :x  save and quit 
+  :w new_file_name  save and replace file name
+
+buffer, tab and window
+  buffer are file loaded in vim/nvim
+  window is like pane in tmux
+  tab (like in web browser) is a collection of window
+
+  window 
+    <C-w> hjkl  move between window
+    <C-w> q  close window
+
+  
 
 horizontal 
 
@@ -60,14 +83,18 @@ vertical
 
 a paragraph is any contiguous non-white space 
 
-  zz center your view 
+  zz center your view by moving viewport
+  M center your view by moving cursor
   :x jump to line x 
+  xG jump to line x 
 
   motion
   { go up by a paragraph
   } go down by a paragraph 
   ctrl + d  move down half a page 
   ctrl + u  move up half a page 
+  ctrl + b  move down a page
+  ctrl + f  move up a page
   G to go to the bottom of the file 
   gg to go to the top of the file 
 
@@ -76,3 +103,179 @@ a paragraph is any contiguous non-white space
   ? inverted search (n go backward, N go forward)
   * to search the word your cursor is on as a / 
   # to search the word your cursor is on as a ? 
+  % move to the matching bracket (works for all bracket ()[]{})
+
+modifying number
+  works with decimal octal hexadecimal binary
+  <C-a> increment 
+  4<C-x> decrement
+
+modifying letter
+  2~   toggle case
+  U   uppercase
+  u   lowercase
+
+fddDFjdsfSDf
+
+  gu{motion} / gU{motion} / g~{motion}  to change cases
+
+  guw   make from the cursor to the word ending lowercase
+  gUiw  make the current WORD uppercase
+  g~iw  toggle this word
+
+word object 
+  i and a are word object modifier 
+
+  i mean the thing
+  a mean the thing and its surrounding
+  
+  all of these are like motion when put after a command
+
+  iw / aw  word
+    [a-zA-z0-9_]+ stop at symbols and whitespace
+  iW / aW  WORD
+    string of non-whitespace characters
+  is / as  sentence
+    WORD stop at . ! ?
+    ( )   move between sentences
+  ip / ap  paragraph
+    strings separated by atleast one blank line
+  i" / a"  quote
+  i( / a(
+  i[ / a[
+  i{ / a{
+
+  ciw caw
+  diw daw
+
+s command (quite useless i think)
+  dont reallly know its use case 
+  literally s is cl or xi
+  S is cc
+
+replace command 
+  replace and you're still in normal mode
+
+  rx
+  3rx
+
+changes command 
+  delete things and put you in insert mode
+    the deleted text goes into register
+  c{motion} 
+  cw   change from here to whitespace
+  c$   change to end of line
+  c0   change to line beginning
+  ct;  change till ; not including
+  cf;  change till ; including
+  cc   change entire line
+  2cc  change 2 lines
+  
+  ciw  change this word 
+  caw  change word (include space)
+  ci"  change inside ""
+  ci(  change inside ()
+  
+lsdjfksjdlfjls
+
+vim macro 
+  record vim action in a register that can be replay later
+    qA go to register a 
+
+  qa    record in a 
+  q     again to stop recording 
+  @a    replay macro in a 
+  x@a   replay macro in a x times 
+  @@    replay last macro
+  :%normal @a  replay macro a at every line
+  :set lazyredraw  make macro faster by not redrawing the screen till the macro is done
+
+vim marks 
+  bookmark a specific location in a file
+  a mark go to a specific register for each letter (a-z A-Z so max 52 marks) 
+
+  uppercase is global, lowercase is local
+
+  ma    set mark a at current cursor location 
+  'a    jump to line of mark a 
+  `a    jump to mark a 
+  d'a   delete from current line to line of mark a 
+  d`a   delete from current position to mark a 
+  c'a   change text from current line to line of mark a 
+  y`a   yank from cursor to mark a 
+
+  :marks          list all current marks 
+  :marks aB       list marks a,B
+  :delmarks a     delete mark a 
+  :delmarks a-z   delete marks from a to z 
+  :delmarks!      delete all marks 
+  
+regex 
+  /\v  or ?\v to search with very magic mode
+
+  :[range]s/find/replace/flag(s)
+  :[range]s/\vfind/replace/flag(s)  to use very magic mode
+    very magic only changes find behavior not replace
+
+  in very magic. things are special by default
+    get the literal by escaping 
+    ex. /\v\/home\/*   matches /home/*
+
+  strings types
+  .     everything
+  /d    digits
+  /w    words
+  /s    whitespaces
+
+  matching amounts
+  *     0 or more
+  +     1 or more
+  ?     0 or 1
+
+  ()    group 
+  |     alternate, OR
+    \v(foo|bar)   matches foo or bar
+  {m,n} ranges
+    \v\d{3}     matches exactly 3 digits (12}
+    \v\d{2,4}   matches 2 - 4 digits (12 123 123}
+    \v\d{3,)    matches 3 or more (123 1234 12345 ...)
+    \v\d{,3}    matches up to 3 (1 12 12}
+    \vab{,3}    matches ab abb abbb
+    \v(ab){,3}  matches ab abab ababab
+
+  :s/foo/bar/    replace first foo in the current line
+  :%s/foo/bar/   replace all foo in the line
+  :%s/foo/bar/g  replace all foo in the file
+
+  flags
+  g    global
+  i    ignore case
+  I    case sensitive
+  c    confirm replacing for every match
+  n    count matches that would happen (dont replace)
+
+  modifying replace 
+    capture group to reuse 
+    :s/\v(\w+)\s+(\w+)/\2 \1/  swap adjacent words
+
+  &,\0     everything that matches 
+  \1,\2    captured group
+  \u\1     capitalize first leter
+  \U\1     capitalize the entire group
+  \l\1     lowercase first leter
+  \L\1     lowercase the entire group
+  \E       stop \u \U \l \L and continue replacing
+    :%s/\v(w+)/\L\1\E done/   replace "wORd" with "word done"
+
+    :%s/\v(w+)/\u\1/g    capitalize every words
+
+  context
+    \zs  start matching here
+      everything before this is context
+    \ze  end matching here
+      what comes after is context
+
+    :%s/\vfoo\zsbar/baz/    replace bar in foobar with baz
+    :%s/\vfoo\zsbar\zequx/baz  replace bar in foobarqux with baz
+
+

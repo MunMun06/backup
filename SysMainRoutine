@@ -2,7 +2,7 @@ step 1  the prep
 
 	check archlinux.org for news
 
-  sudo reflector --protocol https --age 3 --sort rate --number 5 --save /etc/pacman.d/mirrorlist
+  sudo reflector --protocol https --age 3 --sort rate --number 5 --threads 4 --save /etc/pacman.d/mirrorlist
 		(took about 3 minute)
 	sudo pacman -Syy (refresh the mirrorlist)
 

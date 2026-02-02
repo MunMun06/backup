@@ -81,4 +81,15 @@ level 12
   tar
     filename like data.bin5
     tar -xf data.bin5.tar
-cbaIiH0h8J2eUks2vdTDwAn
+FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
+
+level 13 
+  ssh scp umask chmod nc install
+
+  scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private . // run on your machine
+  chmod 600 sshkey.private  // make the key less "open"
+  ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
+
+level 14
+  telnet openssl s_client nmap
