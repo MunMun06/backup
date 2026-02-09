@@ -189,6 +189,8 @@ vim macro
   @@    replay last macro
   :%normal @a  replay macro a at every line
   :set lazyredraw  make macro faster by not redrawing the screen till the macro is done
+  :set nolazyredraw  disable lazyredraw 
+  :set lazyredraw?  check lazyredraw
 
 vim marks 
   bookmark a specific location in a file

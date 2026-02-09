@@ -12,7 +12,7 @@ map("n", "<leader>j", function()
   local out = vim.fn.expand("%:t:r")
 
   vim.cmd("!zsh ~/scripts/compile_cpp.sh '" .. dir .. "' '" .. file .. "' '" .. out .. "'")
-end, opts)
+end, opts, {desc = "C++"})
 
 map("n", "<leader>k", function()
   local dir = vim.fn.expand("%:p:h")
@@ -20,7 +20,7 @@ map("n", "<leader>k", function()
   local out = vim.fn.expand("%:t:r")
 
   vim.cmd("!zsh ~/scripts/compile_c.sh '" .. dir .. "' '" .. file .. "' '" .. out .. "'")
-end, opts)
+end, opts,{desc = "C"})
 
 map("n", "<leader>h", function()
   local dir = vim.fn.expand("%:p:h")
@@ -28,7 +28,7 @@ map("n", "<leader>h", function()
   -- local out = vim.fn.expand("%:t:r")
 
   vim.cmd("!zsh ~/scripts/compile_java.sh '" .. dir .. "' '" .. file .. "'")
-end, opts)
+end, opts, {desc = "java"})
 
 -- Remap Ctrl+D (scroll down half page) to also center the cursor (zz)
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down and Center" })
