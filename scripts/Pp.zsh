@@ -1,38 +1,55 @@
 #!/bin/zsh
 
-# File paths
+# -e: exit on error, -u: error on unset variables, -o pipefail: catch pipeline errors
+set -euo pipefail 
+
 plaintext="passwords.txt"
 encrypted="passwords.txt.gpg"
 
-# Colors for messages
-green=$'%{\e[32m%}'
-red=$'%{\e[31m%}'
-reset=$'%{\e[0m%}'
+# Clean ANSI colors (work in both zsh and bash)
+green='\033[0;32m'
+red='\033[0;31m'
+reset='\033[0m'
 
-# Check for gpg and nvim
-if ! command -v gpg >/dev/null || ! command -v nvim >/dev/null; then
-  echo "${red}Error:${reset} gpg and/or neovim are not installed."
-  exit 1
-fi
+# Check for dependencies
+for cmd in gpg nvim; do
+    if ! command -v "$cmd" >/dev/null; then
+        echo "${red}Error:${reset} $cmd is not installed."
+        exit 1
+    fi
+done
 
-# Decrypt the file
-echo "${green}Decrypting...${reset}"
-if ! gpg -d "$encrypted" > "$plaintext" 2>/dev/null; then
-  echo "${red}Failed to decrypt.${reset}"
-  exit 1
+# Decrypt
+if [[ -f "$encrypted" ]]; then
+    echo -e "${green}Decrypting...${reset}"
+    # Added --quiet to keep the UI clean
+    if ! gpg --quiet --batch --yes -d "$encrypted" > "$plaintext"; then
+        echo -e "${red}Failed to decrypt.${reset}"
+        exit 1
+    fi
+else
+    echo -e "${red}Error:${reset} $encrypted not found."
+    exit 1
 fi
 
 # Open in nvim
-echo "${green}Opening in nvim...${reset}"
 nvim "$plaintext"
 
 # Re-encrypt
-echo "${green}Re-encrypting...${reset}"
-if gpg -c "$plaintext"; then
-  echo "${green}Securely deleting plaintext...${reset}"
-  shred -u "$plaintext"
-  echo "${green}Done.${reset}"
+echo -e "${green}Re-encrypting...${reset}"
+# --yes overwrites the old encrypted file without asking
+if gpg --yes -c "$plaintext"; then
+    echo -e "${green}Securely deleting plaintext...${reset}"
+    
+    # Cross-platform shred/delete
+    if command -v shred >/dev/null; then
+        shred -u "$plaintext"
+    else
+        rm -P "$plaintext" || rm "$plaintext"
+    fi
+    
+    echo -e "${green}Done.${reset}"
 else
-  echo "${red}Encryption failed. Plaintext not deleted.${reset}"
+    echo -e "${red}Encryption failed. Plaintext NOT deleted.${reset}"
+    exit 1
 fi
-
