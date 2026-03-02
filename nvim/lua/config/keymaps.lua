@@ -51,3 +51,18 @@ map("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover Info" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 map("n", "gr", require("telescope.builtin").lsp_references, { desc = "Go to References" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+
+-- Always start search in very magic mode
+map('n', '/', '/\\v', opts)
+map('n', '?', '?\\v', opts)
+
+-- Make :s start with \v automatically
+vim.cmd([[
+cnoreabbrev <expr> s/  getcmdtype() == ':' && getcmdline() ==# 's/'  ? 's/\v'  : 's/'
+cnoreabbrev <expr> %s/ getcmdtype() == ':' && getcmdline() ==# '%s/' ? '%s/\v' : '%s/'
+]])
+-- cnoreabbrev is command-line mode non-recursive abbreviation (only affect : in normal mode)
+-- <expr> intrepret the replaced text as vimscript expression not normal text
+-- conditions. ensure that we are in command-line mode, case-sensitive check the entire command-line content
+--  is 's/'
+-- ternary 
