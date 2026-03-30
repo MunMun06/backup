@@ -40,11 +40,11 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up and Center" })
 -- Find files by name
 map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 -- Search for text inside files (Grep)
-map("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
+map("n", "<leader>fg", builtin.live_grep, { desc = "Search by Grep" })
 -- Search through open buffers
-map("n", "<leader>,", builtin.buffers, { desc = "Switch Buffer" })
+map("n", "<leader>fb", builtin.buffers, { desc = "Switch Buffer" })
 -- Search help tags
-map("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
+map("n", "<leader>fh", builtin.help_tags, { desc = "search help tags" })
 
 -- LSP Mappings
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover Info" })
@@ -66,3 +66,4 @@ cnoreabbrev <expr> %s/ getcmdtype() == ':' && getcmdline() ==# '%s/' ? '%s/\v' :
 -- conditions. ensure that we are in command-line mode, case-sensitive check the entire command-line content
 --  is 's/'
 -- ternary 
+
