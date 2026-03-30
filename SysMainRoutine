@@ -26,9 +26,9 @@ step 2  install and clean up
 
 	yay -Sua (update only AUR packages)
 
-	yay -Sc (remove unused cache packages)
-
 	yay -Yc (remove unwanted dependencies)
+
+	yay -Sc (remove unused cache packages)
 
 	sudo pacman -Rnscu $(pacman -Qtdq)  (remove orphan/usused packages)
 
