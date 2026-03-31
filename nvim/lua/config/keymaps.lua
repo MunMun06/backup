@@ -46,6 +46,17 @@ map("n", "<leader>fb", builtin.buffers, { desc = "Switch Buffer" })
 -- Search help tags
 map("n", "<leader>fh", builtin.help_tags, { desc = "search help tags" })
 
+-- Find all files by name
+map("n", "<leader>fk", function() builtin.find_files({hidden = true, no_ignore = true}) end, { desc = "Find all Files" })
+-- Search for text inside all files (Grep)
+map("n", "<leader>fj", function() builtin.live_grep({hidden = true, no_ignore = true}) end, { desc = "Search all by Grep" })
+
+-- these 2 dont need hidden version
+-- Search through open all buffers
+-- map("n", "<leader>fk", builtin.buffers({hidden = true, no_ignore = true}), { desc = "Switch all Buffer" })
+-- Search all help tags
+-- map("n", "<leader>fl", builtin.help_tags({hidden = true, no_ignore = true}), { desc = "search all help tags" })
+
 -- LSP Mappings
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover Info" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
@@ -67,3 +78,13 @@ cnoreabbrev <expr> %s/ getcmdtype() == ':' && getcmdline() ==# '%s/' ? '%s/\v' :
 --  is 's/'
 -- ternary 
 
+-- better window navigation
+map("n", "<C-h>", "<C-w>h", opts) -- Move to left window
+map("n", "<C-j>", "<C-w>j", opts) -- Move to bottom window
+map("n", "<C-k>", "<C-w>k", opts) -- Move to top window
+map("n", "<C-l>", "<C-w>l", opts) -- Move to right window
+
+-- Better tab navigation
+-- bruh <M-h> is alt + h
+map("n", "H", ":tabprevious<CR>", opts) -- Go to previous tab
+map("n", "L", ":tabnext<CR>", opts)     -- Go to next tab

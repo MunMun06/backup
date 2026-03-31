@@ -22,22 +22,37 @@ return {
   -- },
   { -- optional blink completion source for require statements and module annotations
     "saghen/blink.cmp",
+    dependencies = { 'rafamadriz/friendly-snippets'},
     version = '1.*',
     build = 'cargo build --release',
+    ---@module 'blink.cmp'
+    ---@typeblink.cmp.Config 
     opts = {
+      -- KEYMAPS go here (Root level)
+      keymap = {
+        preset = "default",
+        ["<CR>"] = { "accept", "fallback" },
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+      },
+
+      -- COMPLETION settings go here (Root level)
+      completion = {
+        documentation = { auto_show = false },
+      },
+
+      -- SOURCES go here
       sources = {
-        -- add lazydev to your completion providers
         default = { "lazydev", "lsp", "path", "snippets", "buffer" },
         providers = {
           lazydev = {
             name = "LazyDev",
             module = "lazydev.integrations.blink",
-            -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
           },
         },
       },
     },
-  }
-  -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
+  },  -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 }
+
