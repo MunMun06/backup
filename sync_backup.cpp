@@ -111,8 +111,8 @@ int main() {
   }
 
   if (overall_status == 0) {
-    std::cout << "🎉 All files copied successfully to: "
-              << final_destination_dir << std::endl;
+    std::cout << "🎉 All sync operations complete."
+              << std::endl;
     sync_to_git();
   } else {
     std::cerr
