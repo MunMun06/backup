@@ -54,6 +54,8 @@ step 3 check
 
   cd backup 
   ./sync_backup
+  cd share
+  git add . & git commit & git push
 
 step 4 misc
 
