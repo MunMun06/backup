@@ -30,7 +30,7 @@ step 2  install and clean up
 
 	yay -Sc (remove unused cache packages)
 
-	sudo pacman -Rnscu $(pacman -Qtdq)  (remove orphan/usused packages)
+	sudo pacman -Rs $(pacman -Qtdq)  (remove orphan/usused packages)
 
 	du -sh .cache/  (check the size of .cache)
 
@@ -68,7 +68,7 @@ step 4.5 snapper (monthly)
 
 
 
-sudo pacman -Rnscu (-check what will be removed and keep dependencies that other packages used)
+sudo pacman -Rs (-check what will be removed and keep dependencies that other packages used)
 
 
 snapper
