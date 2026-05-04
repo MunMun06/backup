@@ -57,6 +57,8 @@ step 3 check
   cd share
   git add . & git commit & git push
 
+  update neovim
+
 step 4 misc
 
 	df -h / (check the size of root)
