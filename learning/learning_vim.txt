@@ -54,8 +54,6 @@ buffer, tab and window
     <C-w> hjkl  move between window
     <C-w> q  close window
 
-  
-
 horizontal 
 
   motion 
@@ -106,7 +104,7 @@ a paragraph is any contiguous non-white space
   % move to the matching bracket (works for all bracket ()[]{})
 
 modifying number
-  works with decimal octal hexadecimal binary
+  works with decimal octal hexadecimal binary (WAIT WHAT FOR REAL)
   <C-a> increment 
   4<C-x> decrement
 
@@ -148,10 +146,13 @@ word object
   ciw caw
   diw daw
 
-s command (quite useless i think)
+s command (quite useless i think) (I got flash.nvim so s command was replaced)
   dont reallly know its use case 
   literally s is cl or xi
   S is cc
+  (OMG for flash.nvim. Its literally just f on vimium)
+
+  sdlfkjsdlkjf
 
 replace command 
   replace and you're still in normal mode
