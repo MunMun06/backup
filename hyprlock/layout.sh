@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -euo pipefail
+
 layout=$(hyprctl devices -j | jq -r '.keyboards[0].active_keymap')
 
 # fallback if nothing is detected

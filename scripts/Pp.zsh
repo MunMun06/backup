@@ -43,7 +43,7 @@ if gpg --yes -c "$plaintext"; then
     
     # Cross-platform shred/delete
     if command -v shred >/dev/null; then
-        shred -u "$plaintext"
+        shred -uz "$plaintext"
     else
         rm -P "$plaintext" || rm "$plaintext"
     fi

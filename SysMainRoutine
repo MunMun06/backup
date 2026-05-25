@@ -32,6 +32,8 @@ step 2  install and clean up
 
 	yay -Sua (update only AUR packages)
 
+  go into librewolf. KeePassXC-browser extension setting. check for update
+
 	yay -Yc (remove unwanted dependencies)
 
 	yay -Sc (remove unused cache packages)
@@ -60,12 +62,12 @@ step 3 check
 
 	pacman -Qe > explicit-installed.txt && pacman -Q > installed.txt
 
+  update neovim
+
   cd backup 
   ./sync_backup
   cd share
   git add . & git commit & git push
-
-  update neovim
 
 step 4 misc
 
@@ -94,3 +96,33 @@ in TTY (used when cant login to hyprland)
 	sudo snapper -c root list
 	sudo snapper -c root rollback --snapshot 10 (full rollback to snapshot 10)
 	reboot
+
+
+
+Syncing password database in syncthing 
+  
+.
+├── par2
+│   ├── Passwords.kdbx.vol0000+0001.par2
+│   ├── Passwords.kdbx.vol0001+0002.par2
+│   ├── Passwords.kdbx.vol0003+0004.par2
+│   ├── Passwords.kdbx.vol0007+0008.par2
+│   ├── Passwords.kdbx.vol0015+0016.par2
+│   ├── Passwords.kdbx.vol0031+0032.par2
+│   ├── Passwords.kdbx.vol0063+0064.par2
+│   ├── Passwords.kdbx.vol0127+0128.par2
+│   ├── Passwords.kdbx.vol0255+0256.par2
+│   ├── Passwords.kdbx.vol0511+0512.par2
+│   ├── Passwords.kdbx.vol1023+1024.par2
+│   └── Passwords.kdbx.vol2047+1113.par2
+├── Passwords.kdbx
+└── Passwords.kdbx.par2
+
+rm -rf par2/*
+rm Passwords.kdbx.par2
+par2 create -r200 Passwords.kdbx
+mv *.par2 par2/ 
+mv par2/Passwords.kdbx.par2 .
+
+par2 verify Passwords.kdbx.par2 par2/*
+par2 repair Passwords.kdbx.par2 par2/*
