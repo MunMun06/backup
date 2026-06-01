@@ -1,0 +1,43 @@
+Tutor
+  :Tutor        put you in neovim tutorial
+
+Help
+  :help         brings up neovim documentation
+    :help usr   for the user manual
+  <leader>fs    to search in neovim documentation by tags
+
+Check health 
+  :checkhealth    check the health of neovim and all of the installed plugin.
+
+Links
+  ctrl+] and ctrl+o   to jump to and jump back from a hyperlink (can link to other files)
+  press enter to jump using a normal link (only link to the same file)
+
+Learn more about command mode
+  command line mode run vimscript but we can run system binary via vimscript 
+    and := is a shortcut to inspect lua values (:= vim.loop.os_uname())
+
+    :! to run system binary like in a terminal (but there will be no aliases) (execute in working directory)
+
+    :term open a terminal in a neovim buffer
+    :norm do stuff like you are in normal modes
+
+    :reg to show register (Current register is "". "2p to paste from register 2. "7y to yank into the 7th register)
+      special register. + is the system clipboard. % is the current file name (not including the path).
+        / is the last search regex. : is previous command before running the current :reg.
+        alphabet are register for recording macro.
+
+Learn how to install neovim plugin without a plugin manager 
+
+Learn how to install LSP without mason.
+
+Learn lua to some proficiency 
+  Gemini said to learn about the basic then how to interact with neovim on lua 
+    and dont learn metatables, IO stream, coroutines
+
+  decided to learn lua via tutorialspoint website and learnXinYminutes
+
+  learn the neovim interaction with NvChad "learn lua" guide. :help lua-guide
+
+Want some folding code blocks. Ctrl in insert mode to delete and move by word. Use the default selection for autocomplete option. neogit for git integration.
+  get the thick cursor permanently on neovim, no matter the mode. Detailed comment about what each plugin can do and are responsible of.
