@@ -39,5 +39,90 @@ Learn lua to some proficiency
 
   learn the neovim interaction with NvChad "learn lua" guide. :help lua-guide
 
+Folding (z)
+  zfa{    to create a fold around {} which is usually a function or code block 
+  
+  zo      open fold 
+  zc      close fold 
+
+  these 2 are for nested folds
+  zr      reduce fold 
+  zm      more fold
+
 Want some folding code blocks. Ctrl in insert mode to delete and move by word. Use the default selection for autocomplete option. neogit for git integration.
   get the thick cursor permanently on neovim, no matter the mode. Detailed comment about what each plugin can do and are responsible of.
+
+easy 
+  folding code blocks done  
+  use default for autocomplete done
+  neogit done
+medium
+  get thick cursor permanently done
+  ctrl to move by word in insert mode done
+hard 
+  detailed comment about each plugin done
+  make a custom compile script with rust (later after i learned rust)
+  get harpoon to works
+very hard 
+  lsp and mason 
+  fix autocomplete in 2026.txt
+  minimize the amount of plugins
+  
+
+why the are we moving 4 lines instead of half a page with <c-u> and <c-d> (it fixed itself somehow)
+
+
+
+
+
+Core & Plugin Management
+    lazy.nvim: The fast, modern plugin manager itself that bootstraps and orchestrates your entire configuration lifecycle.
+    plenary.nvim: A critical utility library packed with Lua functions that many other plugins (like Telescope and Harpoon) depend on to function.
+
+File Navigation & Fuzzy Finding
+    oil.nvim: A minimalist file explorer that lets you edit your filesystem directory structure like a standard text buffer (renaming, creating, and deleting files
+  natively).
+    harpoon: A productivity plugin designed for rapid file switching, allowing you to pin a handful of specific files to quick-access hotkeys.
+    telescope.nvim: A highly extensible, modular fuzzy finder for searching files, live grep, buffers, git commits, and more.
+    telescope-fzf-native.nvim: A native C port of the fzf sorter for Telescope, drastically improving search speed and matching quality.
+
+Language Server Protocol (LSP), Linting & Formatting
+    mason.nvim: A portable package manager that lets you easily install and manage external LSP servers, linters, and formatters inside Neovim.
+    mason-lspconfig.nvim: Bridges the gap between mason.nvim and nvim-lspconfig, making it seamless to hook up installed servers to your code.
+    nvim-lspconfig: The official, standard configurations for Neovim's built-in Language Server Protocol client to get features like autocompletion and definition
+  jumps.
+    lazydev.nvim: Optimizes your development environment specifically for writing Neovim Lua configs, providing full auto-completion for the native Vim API.
+    nvim-lint: A sleek, asynchronous linter runner that handles diagnostic check tools for various programming languages.
+    conform.nvim: A fast, lightweight code formatter manager that supports auto-formatting on save using external tools.
+
+Treesitter & Code Parsing
+    nvim-treesitter: Builds and manages syntax tree parsers for advanced, lightning-fast syntax highlighting and code structure awareness.
+    nvim-treesitter-textobjects: Leverages Treesitter to let you use custom text-objects, allowing you to delete, change, or select whole functions, loops, or 
+  conditional blocks.
+
+Autocompletion & Snippets
+    blink.cmp: A modern, high-performance completion engine designed to be exceptionally fast and responsive out of the box.
+    friendly-snippets: A massive collection of pre-made, community-driven snippets for dozens of programming languages.
+
+Git Integration
+    neogit: A powerful, comprehensive Git interface for Neovim, inspired heavily by Emacs' Magit, for staging, committing, and managing branches.
+    gitsigns.nvim: Adds subtle, real-time indicators in the sign column to show added, modified, or deleted lines in a Git repository.
+    codediff.nvim: A specialized diff tool for viewing changes, merges, and differences between code files.
+
+UI, QoL & Aesthetics
+    tokyonight.nvim: A clean, dark color scheme featuring vibrant neon accents.
+    lualine.nvim: A fast, highly customizable statusline at the bottom of the screen showing modes, file info, and Git status.
+    nvim-web-devicons: Provides a massive set of file-type icons used across status lines, file trees, and pickers.
+    snacks.nvim: A modern, multi-purpose collection of small, performance-oriented UI utilities (like a dashboard, smooth scrolling, or scratchpads).
+    which-key.nvim: A popup panel that automatically appears when you start a key combo, listing all available keymaps so you don't have to memorize everything.
+    trouble.nvim: A pretty, clean list view that aggregates all your LSP diagnostics, search results, and warnings into one scannable panel.
+    todo-comments.nvim: Searches for, highlights, and lists interactive tags within your codebase like TODO, FIXME, or NOTE.
+    baleia.nvim: A utility that strips ANSI escape sequences and colorizes text buffers, which is highly useful when viewing terminal command outputs inside Neovim.
+
+Coding Efficiency & Movement
+    flash.nvim: A fast motion plugin that lets you jump to any character or word anywhere on your screen with just a few keystrokes.
+    mini.ai: Enhances and extends Neovim's default text-objects (like around/inside text blocks) with extra capabilities and better smart-selection.
+    mini.pairs: A lightweight, automatic structural pair creator that auto-closes brackets, quotes, and parentheses as you type.
+
+Specialized Ecosystems
+    lean.nvim: A highly specific companion plugin providing rich environment features for interacting with the Lean theorem prover.

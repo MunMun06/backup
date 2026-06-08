@@ -31,9 +31,10 @@ return {
       -- KEYMAPS go here (Root level)
       keymap = {
         preset = "default",
-        ["<CR>"] = { "accept", "fallback" },
-        ["<Tab>"] = { "select_next", "fallback" },
-        ["<S-Tab>"] = { "select_prev", "fallback" },
+        -- we will be using default instead
+        --["<CR>"] = { "accept", "fallback" }, -- <C-y>
+        --["<Tab>"] = { "select_next", "fallback" }, -- <C-n> 
+        --["<S-Tab>"] = { "select_prev", "fallback" }, -- <C-p>
       },
 
       -- COMPLETION settings go here (Root level)
@@ -55,4 +56,3 @@ return {
     },
   },  -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 }
-

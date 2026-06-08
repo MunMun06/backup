@@ -62,7 +62,7 @@ step 3 check
 
 	pacman -Qe > explicit-installed.txt && pacman -Q > installed.txt
 
-  update neovim
+  update neovim and mason packages
 
   cd backup 
   ./sync_backup

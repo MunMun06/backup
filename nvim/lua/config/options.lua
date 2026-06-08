@@ -10,3 +10,4 @@ vim.opt.softtabstop = 2  -- Number of spaces a <Tab> counts for while editing
 vim.opt.shiftwidth = 2   -- Number of spaces for each step of (auto)indent
 vim.opt.expandtab = true -- Convert tabs to spaces
 
+vim.opt.guicursor = "a:block" -- make the cursor a block in all mode (a for all)

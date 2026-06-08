@@ -9,8 +9,8 @@ return {
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
 		bigfile = { enabled = true }, -- prevent bigfile like LSP from going into buffer (would that ever happened?)
-		dashboard = { enabled = true }, -- dashboard
-		explorer = { enabled = true }, -- my leader e that will sadly meet its end
+		dashboard = { enabled = true }, -- dashboard when open nvim
+		explorer = { enabled = false }, -- replaced with oils.nvim
 		indent = { enabled = true }, -- maybe for indent commenting on new line
 		input = { enabled = true }, -- maybe for enter and its choose the completion
 		picker = { enabled = true }, -- we got telescope

@@ -3,7 +3,7 @@ return {
   dependencies = {
     "neovim/nvim-lspconfig",
     "nvim-lua/plenary.nvim",
-    "hrsh7th/nvim-cmp",
+    -- "hrsh7th/nvim-cmp", -- not needed because i already have blink.cmp handling text completion
   },
   opts = {
     lsp = {
