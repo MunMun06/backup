@@ -51,6 +51,14 @@ return {
             module = "lazydev.integrations.blink",
             score_offset = 100,
           },
+          buffer = {
+            opts = {
+              -- i 15x async and 16x total to fix my diary problem
+              max_sync_buffer_size = 20000, -- max sync buffer size per file (in characters)
+              max_async_buffer_size = 3000000, -- max async buffer size per file (about 3 Mb)
+              max_total_buffer_size = 8000000, -- max total buffer size (about 8 Mb)
+            }
+          }
         },
       },
     },

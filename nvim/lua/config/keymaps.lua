@@ -78,12 +78,6 @@ cnoreabbrev <expr> %s/ getcmdtype() == ':' && getcmdline() ==# '%s/' ? '%s/\v' :
 --  is 's/'
 -- ternary 
 
--- better window navigation
-map("n", "<C-h>", "<C-w>h", opts) -- Move to left window
-map("n", "<C-j>", "<C-w>j", opts) -- Move to bottom window
-map("n", "<C-k>", "<C-w>k", opts) -- Move to top window
-map("n", "<C-l>", "<C-w>l", opts) -- Move to right window
-
 -- Better tab navigation
 -- bruh <M-h> is alt + h
 map("n", "H", ":tabprevious<CR>", opts) -- Go to previous tab

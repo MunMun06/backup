@@ -62,15 +62,14 @@ medium
 hard 
   detailed comment about each plugin done
   make a custom compile script with rust (later after i learned rust)
-  get harpoon to works
+  get harpoon to works  done
 very hard 
-  lsp and mason 
-  fix autocomplete in 2026.txt
-  minimize the amount of plugins
+  lsp and mason  done
+  fix autocomplete in 2026.txt  done
+  minimize the amount of plugins  i think its done?
   
 
 why the are we moving 4 lines instead of half a page with <c-u> and <c-d> (it fixed itself somehow)
-
 
 
 
