@@ -1,6 +1,8 @@
 #!/bin/zsh
 # battery-normal.sh — restore normal performance
 
+set -euo pipefail
+
 echo "[+] Restoring normal performance..."
 
 ## CPU governor → schedutil (default on Arch)

@@ -1,6 +1,8 @@
 #!/bin/zsh
 # battery-save.sh — enable extreme battery saving
 
+set -euo pipefail
+
 echo "[+] Enabling extreme battery saving..."
 
 ## CPU governor → powersave
