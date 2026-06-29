@@ -220,7 +220,7 @@ regex
   :[range]s/\vfind/replace/flag(s)  to use very magic mode
     very magic only changes find behavior not replace
 
-  in very magic. things are special by default
+  in very magic. symbols are special by default
     get the literal by escaping 
     ex. /\v\/home\/*   matches /home/*
 
