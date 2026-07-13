@@ -57,12 +57,11 @@ step 3 check
 	systemctl --failed (check for failed unit)
 
 	sudo smartctl -t long /dev/sda (check disk health and potential malware)
-		(wait about 3 minutes then run
+	  pacman -Qe > explicit-installed.txt && pacman -Q > installed.txt
+    update neovim and mason packages
+    (wait then run
 	sudo smartctl -a /dev/sda | grep overall-health )
 
-	pacman -Qe > explicit-installed.txt && pacman -Q > installed.txt
-
-  update neovim and mason packages
 
   cd backup 
   ./sync_backup
