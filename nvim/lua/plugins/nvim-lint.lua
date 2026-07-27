@@ -8,7 +8,8 @@ return {
     lint.linters_by_ft = {
       cpp = { "cpplint" },
       c = { "cpplint" },
-      java = { "checkstyle" }
+      java = { "checkstyle" },
+      -- rust = { "bacon" }
 
     }
 

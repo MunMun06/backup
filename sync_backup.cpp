@@ -71,6 +71,8 @@ int main() {
       {"/home/munmun06/explicit-installed.txt", "explicit-installed.txt"},
       {"/home/munmun06/SysMainRoutine", "SysMainRoutine"},
       {"/home/munmun06/scripts/", "scripts/"},
+      {"/home/munmun06/scripts/source/battery-save/", "scripts/source/battery-save"},
+      {"/home/munmun06/scripts/source/battery-normal/", "scripts/source/battery-normal"},
       {"/home/munmun06/passwords.txt.gpg", "passwords.txt.gpg"},
       {"/home/munmun06/personal/git-stuff/git_convention", "git_convention"},
       {"/home/munmun06/My_programming_stuff/learning/", "learning/"},
