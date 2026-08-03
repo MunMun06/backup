@@ -63,7 +63,6 @@ step 3 check
     (wait then run
 	sudo smartctl -a /dev/sda | grep overall-health )
 
-
   cd backup 
   ./sync_backup
   cd share
