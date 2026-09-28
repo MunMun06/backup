@@ -48,6 +48,14 @@ step 2  install and clean up
 
 	sudo DIFFPROG=vimdiff pacdiff
 
+  ( updating GRUB
+
+    sudo grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+  )
+
 step 3 check
 
 	shutdown -r now
